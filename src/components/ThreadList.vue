@@ -5,12 +5,12 @@
 
       <div v-for="thread in threads" :key="thread.id" class="thread">
         <div>
-          <a href="#">{{ thread.title }}</a>
-          <!-- <p>
+          <!-- <a href="`/thread/${thread.id}`">{{ thread.title }}</a> -->
+          <p>
             <router-link :to="{ name: 'ThreadShow', params: { id: thread.id } }">{{
               thread.title
             }}</router-link>
-          </p> -->
+          </p>
           <p class="text-faded text-xsmall">
             By <a href="#">{{ userById(thread.userId).name }}</a
             >, publishedAt {{ thread.publishedAt }}.
