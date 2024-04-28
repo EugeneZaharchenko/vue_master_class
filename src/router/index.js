@@ -1,16 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import PageHomeView from '../views/PageHomeView.vue'
-import PageThreadShow from '@/components/PageThreadShow.vue'
-import NotFound from '@/components/NotFound.vue'
+import PageHome from '@/pages/Home.vue'
+import PageHomeView from '@/views/PageHomeView.vue'
+import PageThreadShow from '@/pages/ThreadShow.vue'
+import NotFound from '@/pages/NotFound.vue'
+import sourceData from '@/data.json'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'Home',
+      component: PageHome
     },
     {
       path: '/page',
@@ -26,9 +27,23 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/thread/show/:id',
+      path: '/thread/:id',
       name: 'ThreadShow',
-      component: PageThreadShow
+      component: PageThreadShow,
+      props: true,
+      beforeEnter(to, from, next) {
+        const threadExists = sourceData.threads.find((thread) => thread.id === to.params.id)
+        if (threadExists) {
+          return next()
+        } else {
+          next({
+            name: 'NotFound',
+            params: { pathMatch: to.path.substring(1).split('/') }
+            // query: to.query,
+            // hash: to.hash
+          })
+        }
+      }
     },
     {
       path: '/:pathMatch(.*)*',

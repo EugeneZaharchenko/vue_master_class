@@ -1,10 +1,11 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <h1>Welcome to the Forum</h1>
   <ThreadList :threads="threads" />
 </template>
 
 <script setup>
-import ThreadList from './ThreadList.vue'
+import ThreadList from '@/components/ThreadList.vue'
 import sourceData from '@/data.json'
 import { reactive } from 'vue'
 

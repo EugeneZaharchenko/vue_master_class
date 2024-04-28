@@ -5,7 +5,6 @@
 
       <div v-for="thread in threads" :key="thread.id" class="thread">
         <div>
-          <!-- <a href="`/thread/${thread.id}`">{{ thread.title }}</a> -->
           <p>
             <router-link :to="{ name: 'ThreadShow', params: { id: thread.id } }">{{
               thread.title
