@@ -36,12 +36,10 @@ export default {
   },
   methods: {
     addPost(eventData) {
-      // const postId = 'slavaUkraini' + Math.random()
       const post = {
         ...eventData.post,
         // id: postId,
         // text: this.newPostText,
-        // publishedAt: Math.floor(Date.now() / 1000),
         threadId: this.id,
         // userId: '38St7Q8Zi2N1SPa5ahzssq9kbyp1'
       }
