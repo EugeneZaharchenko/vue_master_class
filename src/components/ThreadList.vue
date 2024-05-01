@@ -33,37 +33,35 @@
   </div>
 </template>
 
-<script setup>
-import { reactive } from 'vue'
+<script>
 import { findById } from '@/helpers'
 import sourceData from '@/data.json'
-const posts = reactive(sourceData.posts)
-const users = reactive(sourceData.users)
-
-defineProps({
-  threads: {
-    type: Array,
-    required: true
+import AppDate from './AppDate.vue'
+export default {
+  props: {
+    threads: {
+      required: true,
+      type: Array
+    }
+  },
+  components: {
+    AppDate
+  },
+  data() {
+    return {
+      posts: sourceData.posts,
+      users: sourceData.users
+    }
+  },
+  methods: {
+    postById(postId) {
+      return this.posts.find((p) => p.id === postId)
+    },
+    userById(userId) {
+      return this.users.find((p) => p.id === userId)
+    }
   }
-})
-
-function postById(postId) {
-  return posts.find((p) => p.id === postId)
-}
-function userById(userId) {
-  return users.find((p) => p.id === userId)
 }
 </script>
-<!-- 
-<script>
-export default {
-  
-  } -->
-// computed: { // posts() { // return this.$store.state.post // }, // users() { // return
-this.$store.state.users // } // }, // methods: { // postById(postId) { // return
-findById(this.posts, postId) // }, // userById(userId) { // return findById(this.users, userId) ||
-{} // } // }
-<!-- }
-</script> -->
 
 <style></style>
