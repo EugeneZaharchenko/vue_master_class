@@ -12,6 +12,7 @@
     "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot"
   },
   "dependencies": {
+    "dayjs": "^1.11.11",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-router": "^4.3.2"
