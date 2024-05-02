@@ -35,9 +35,8 @@
 </template>
 
 <script>
-import { findById } from '@/helpers'
+// import { findById } from '@/helpers'
 import sourceData from '@/data.json'
-import AppDate from './AppDate.vue'
 export default {
   props: {
     threads: {

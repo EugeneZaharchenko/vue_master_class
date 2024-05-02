@@ -30,11 +30,6 @@ export default {
   //     normalizedTimestamp() {
   //       return this.timestamp?.seconds || this.timestamp
   //     },
-  //     diffForHumans() {
-  //       return dayjs.unix(this.normalizedTimestamp).fromNow()
-  //     },
-  //     humanFriendlyDate() {
-  //       return dayjs.unix(this.normalizedTimestamp).format('llll')
   //     }
   //   }
 }
