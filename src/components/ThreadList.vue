@@ -45,9 +45,6 @@ export default {
       type: Array
     }
   },
-  components: {
-    AppDate
-  },
   data() {
     return {
       posts: sourceData.posts,

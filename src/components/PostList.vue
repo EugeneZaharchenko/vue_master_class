@@ -38,7 +38,6 @@ export default {
       type: Array
     }
   },
-  components: { AppDate },
   computed: {
     users() {
       return sourceData.users
