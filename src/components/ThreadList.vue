@@ -12,7 +12,8 @@
           </p>
           <p class="text-faded text-xsmall">
             By <a href="#">{{ userById(thread.userId).name }}</a
-            >, publishedAt {{ thread.publishedAt }}.
+            >, <AppDate :timestamp="thread.publishedAt" />.
+            <!-- publishedAt {{ thread.publishedAt }} -->
           </p>
         </div>
 
@@ -25,7 +26,7 @@
             <p class="text-xsmall">
               <a href="profile.html">{{ userById(thread.userId).name }}</a>
             </p>
-            <p class="text-xsmall text-faded">publishedAt {{ thread.publishedAt }}</p>
+            <p class="text-xsmall text-faded"><AppDate :timestamp="thread.publishedAt" /></p>
           </div>
         </div>
       </div>
