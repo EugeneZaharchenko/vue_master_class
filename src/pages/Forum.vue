@@ -35,7 +35,6 @@ export default {
         forum () {
             return sourceData.forums.find(forum => forum.id === this.id)
         },
-        // threads: () => {return ["-KvgjI6bfbWYlbYV5ndr"]}
         threads () {
             return sourceData.threads.filter(thread => thread.forumId === this.id)
         }

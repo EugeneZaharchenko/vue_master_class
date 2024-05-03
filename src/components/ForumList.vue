@@ -2,11 +2,12 @@
   <div class="col-full">
     <div class="forum-list">
       <h2 class="list-title">
-        <!-- <router-link v-if="categoryId" :to="{ name: 'Category', params: { id: categoryId } }">{{
+
+        <router-link v-if="categoryId" :to="{ name: 'Category', params: { id: categoryId } }">{{
           title
         }}</router-link>
-        <span v-else>{{ title }}</span> -->
-        <a href="category.html">Feedback</a>
+        <span v-else>{{ title }}</span>
+        <!-- <a href="#">{{title}}</a> -->
       </h2>
 
       <div class="forum-listing" v-for="forum in forums" :key="forum.id">
@@ -44,6 +45,11 @@ export default {
     categoryId: {
       required: false,
       type: String
+    },
+    categoryName: {
+      required: false,
+      type: String,
+      default: 'ForumsAgain'
     }
   },
   methods: {
