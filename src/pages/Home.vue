@@ -1,25 +1,20 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <h1>Welcome to the Forum</h1>
-  <CategoryList :categories="categories" />
+  <CategoryList :categories="categoriesStore.categories" />
 </template>
 
-<script>
+<script setup>
 // import ForumList from '@/components/ForumList.vue'
 import CategoryList from '@/components/CategoryList.vue'
-import sourceData from '@/data.json'
+import { useCategoriesStore } from '@/stores/CategoriesStore';
+// import sourceData from '@/data.json'
+
+const categoriesStore = useCategoriesStore()
 // import { reactive } from 'vue'
 
 // const threads = reactive(sourceData.threads)
 
-export default {
-  components: {
-    CategoryList
-  },
-  data() {
-    return { categories: sourceData.categories }
-  }
-}
 </script>
 
 <style>
