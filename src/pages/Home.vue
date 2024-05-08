@@ -1,20 +1,16 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <h1>Welcome to the Forum</h1>
-  <CategoryList :categories="categoriesStore.categories" />
+  <CategoryList :categories="categories" />
 </template>
 
 <script setup>
+import { storeToRefs } from 'pinia';
 // import ForumList from '@/components/ForumList.vue'
 import CategoryList from '@/components/CategoryList.vue'
 import { useCategoriesStore } from '@/stores/CategoriesStore';
-// import sourceData from '@/data.json'
 
-const categoriesStore = useCategoriesStore()
-// import { reactive } from 'vue'
-
-// const threads = reactive(sourceData.threads)
-
+const {categories} = storeToRefs(useCategoriesStore())
 </script>
 
 <style>

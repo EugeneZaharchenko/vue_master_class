@@ -8,6 +8,10 @@
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { useThreadsStore } from '@/stores/ThreadsStore'
+import { usePostsStore } from '@/stores/PostsStore'
+
 import PostList from '@/components/PostList.vue'
 import PostEditor from '@/components/PostEditor.vue'
 import sourceData from '@/data.json'
@@ -27,6 +31,8 @@ export default {
     }
   },
   computed: {
+    ...mapState(useThreadsStore, ['threads']),
+    ...mapState(usePostsStore, ['posts']),
     thread() {
       return this.threads.find((thread) => thread.id === this.id)
     },
