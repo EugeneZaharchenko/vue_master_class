@@ -1,16 +1,16 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <h1>Welcome to the Forum</h1>
+  <h1 class="push-top">Welcome to the Forum</h1>
   <CategoryList :categories="categories" />
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia';
+import { storeToRefs } from 'pinia'
 // import ForumList from '@/components/ForumList.vue'
 import CategoryList from '@/components/CategoryList.vue'
-import { useCategoriesStore } from '@/stores/CategoriesStore';
+import { useCategoriesStore } from '@/stores/CategoriesStore'
 
-const {categories} = storeToRefs(useCategoriesStore())
+const { categories } = storeToRefs(useCategoriesStore())
 </script>
 
 <style>

@@ -1,10 +1,14 @@
-<script setup>
-// import PageHome from './components/PageHome.vue'
+<script>
+import TheNavbar from './components/TheNavbar.vue'
+export default {
+  name: 'App',
+  components: { TheNavbar }
+}
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
 
     <div class="container">
       <!-- <page-home /> -->
@@ -16,6 +20,7 @@
       </nav>
     </div>
   </header>
+  <the-navbar />
 
   <RouterView />
 </template>
