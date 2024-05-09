@@ -3,12 +3,12 @@
     <h1>{{ thread.title }}</h1>
 
     <post-list :posts="threadPosts" />
-    <post-editor @save="addPost"/>
+    <post-editor @save="addPost" />
   </div>
 </template>
 
 <script>
-import { mapState } from 'pinia'
+import { mapState, mapActions } from 'pinia'
 import { useThreadsStore } from '@/stores/ThreadsStore'
 import { usePostsStore } from '@/stores/PostsStore'
 
@@ -24,7 +24,7 @@ export default {
       type: String
     }
   },
-  data () {
+  data() {
     return {
       threads: sourceData.threads,
       posts: sourceData.posts
@@ -41,17 +41,16 @@ export default {
     }
   },
   methods: {
+    ...mapActions(usePostsStore, ['createPost']),
     addPost(eventData) {
       const post = {
         ...eventData.post,
         // id: postId,
         // text: this.newPostText,
-        threadId: this.id,
-        // userId: '38St7Q8Zi2N1SPa5ahzssq9kbyp1'
+        threadId: this.id
       }
-      this.posts.push(post)
-      this.thread.posts.push(post.id)
-    }  
+      this.createPost(post)
+    }
   }
 }
 </script>
